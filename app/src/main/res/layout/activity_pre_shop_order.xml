@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.order.PreShopOrderActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.example.myshop.baseview.NavigationBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="填写订单" />
+
+        <ScrollView
+            android:layout_weight="1"
+            android:background="@color/bck_color"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/addressView"
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:background="@color/white">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/defaultAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="10dp"
+                        android:visibility="gone"
+                        app:cardBackgroundColor="#F44336"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="0dp"
+                        app:cardMaxElevation="0dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:text="默认"
+                            android:textColor="@color/white"
+                            android:textSize="12sp">
+
+                        </TextView>
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="8dp"
+                        android:text="会逐呕惠阳淡水街道"
+                        android:textColor="@color/gray"
+                        app:layout_constraintLeft_toRightOf="@id/defaultAddress"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/detailAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="4dp"
+                        android:text="会逐呕惠阳淡水街道"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/address" />
+
+                    <TextView
+                        android:id="@+id/userName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="4dp"
+                        android:text="王思聪"
+                        android:textColor="@color/text666"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/detailAddress" />
+
+                    <TextView
+                        android:id="@+id/phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="4dp"
+                        android:text="110****12"
+                        android:textColor="@color/text999"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toRightOf="@id/userName"
+                        app:layout_constraintTop_toBottomOf="@id/detailAddress" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/arrow_right"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/noAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:text="暂无地址,点击添加" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <RelativeLayout
+                    android:descendantFocusability="blocksDescendants"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/goodsList"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+                </RelativeLayout>
+
+
+
+               <androidx.constraintlayout.widget.ConstraintLayout
+                   android:layout_marginTop="8dp"
+                   android:paddingBottom="10dp"
+                   android:background="@color/white"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+
+                   <TextView
+                       android:layout_marginTop="10dp"
+                       android:id="@+id/goodsPrice"
+                       app:layout_constraintTop_toTopOf="parent"
+                       app:layout_constraintRight_toRightOf="parent"
+                       android:layout_marginEnd="10dp"
+                       android:textStyle="bold"
+                       android:text="0.0"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+
+                   <TextView
+                       android:layout_marginStart="12dp"
+                       app:layout_constraintTop_toTopOf="@id/goodsPrice"
+                       android:text="商品价格"
+                       app:layout_constraintLeft_toLeftOf="parent"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+
+                   <TextView
+                       android:id="@+id/goodsFree"
+                       app:layout_constraintTop_toBottomOf="@id/goodsPrice"
+                       app:layout_constraintRight_toRightOf="@id/goodsPrice"
+                       android:layout_marginTop="5dp"
+                       android:textStyle="bold"
+                       android:text="0.0"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+
+                   <TextView
+                       android:layout_marginStart="12dp"
+                       app:layout_constraintTop_toTopOf="@id/goodsFree"
+                       android:text="退换货免运费"
+                       app:layout_constraintLeft_toLeftOf="parent"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+
+                   <TextView
+                       android:id="@+id/goodsFreight"
+                       app:layout_constraintTop_toBottomOf="@id/goodsFree"
+                       app:layout_constraintRight_toRightOf="@id/goodsPrice"
+                       android:layout_marginTop="5dp"
+                       android:textStyle="bold"
+                       android:text="0.0"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+
+
+
+                   <TextView
+                       android:layout_marginStart="12dp"
+                       app:layout_constraintTop_toTopOf="@id/goodsFreight"
+                       android:text="运费"
+                       app:layout_constraintLeft_toLeftOf="parent"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+
+                   <TextView
+                       android:id="@+id/goodsCoupon"
+                       app:layout_constraintTop_toBottomOf="@id/goodsFreight"
+                       app:layout_constraintRight_toRightOf="@id/goodsPrice"
+                       android:layout_marginTop="5dp"
+                       android:textStyle="bold"
+                       android:text="0.0"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+
+                   <TextView
+                       android:layout_marginStart="12dp"
+                       app:layout_constraintTop_toTopOf="@id/goodsCoupon"
+                       android:text="优惠卷"
+                       app:layout_constraintLeft_toLeftOf="parent"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+
+                   <View
+                       android:layout_marginStart="10dp"
+                       android:layout_marginEnd="10dp"
+                       android:layout_marginTop="10dp"
+                       app:layout_constraintTop_toBottomOf="@id/goodsCoupon"
+                       android:background="@color/bck_color"
+                       android:layout_width="match_parent"
+                       android:layout_height="1dp"/>
+
+                   <TextView
+
+                       android:id="@+id/allPrice"
+                       android:layout_marginTop="20dp"
+                       app:layout_constraintTop_toBottomOf="@id/goodsCoupon"
+                       android:text="¥12121"
+                       android:textColor="@color/red"
+                       app:layout_constraintRight_toRightOf="@id/goodsCoupon"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+
+                   <TextView
+                       android:layout_marginStart="12dp"
+                       app:layout_constraintTop_toTopOf="@id/allPrice"
+                       app:layout_constraintBottom_toBottomOf="@+id/allPrice"
+                       android:text="总计："
+                       android:textSize="10sp"
+                       app:layout_constraintRight_toLeftOf="@id/allPrice"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+
+
+
+
+               </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            >
+
+            <TextView
+                android:id="@+id/submitPrice"
+                android:text="¥12121"
+                android:textColor="@color/red"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.cardview.widget.CardView
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp"
+                app:cardBackgroundColor="@color/red"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="10dp"
+                app:cardCornerRadius="30dp"
+
+                android:layout_width="wrap_content"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:id="@+id/submitBtn"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="25dp"
+                    android:textColor="@color/white"
+                    android:text="结算"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <View
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/bck_color"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

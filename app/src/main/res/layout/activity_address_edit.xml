@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.my.AddressEditActivity">
+
+   <LinearLayout
+       android:background="@color/bck_color"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+       <com.example.myshop.baseview.NavigationBar
+           android:id="@+id/navbar"
+           app:layout_constraintTop_toTopOf="parent"
+           android:layout_width="match_parent"
+           app:title="地址"
+           android:layout_height="wrap_content"/>
+
+
+       <androidx.cardview.widget.CardView
+           android:layout_marginStart="8dp"
+           android:layout_marginEnd="8dp"
+           android:layout_marginTop="10dp"
+           app:cardBackgroundColor="@color/bck_color"
+           app:cardElevation="0dp"
+           app:cardMaxElevation="0dp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           app:cardCornerRadius="10dp">
+           <LinearLayout
+               android:layout_height="wrap_content"
+               android:layout_width="match_parent"
+               android:orientation="vertical"
+               >
+
+               <LinearLayout
+                   android:background="@color/white"
+                   android:gravity="center_vertical"
+                   android:layout_height="40dp"
+                   android:layout_width="match_parent">
+                   <TextView
+                       android:layout_marginStart="5dp"
+                       android:textColor="@color/black"
+                       android:textStyle="bold"
+                       android:height="30dp"
+                       android:gravity="center_vertical"
+                       android:layout_width="80dp"
+                       android:layout_height="wrap_content"
+                       android:text="收货人"
+                       />
+                   <EditText
+                       android:id="@+id/userName"
+                       android:layout_weight="1"
+                       android:layout_marginRight="10dp"
+                       android:layout_width="0dp"
+                       android:layout_height="match_parent"
+                       android:background="@null"
+                       android:textSize="14sp"
+                       android:hint="输入收货人"
+                       />
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_marginTop="1dp"
+                   android:background="@color/white"
+                   android:gravity="center_vertical"
+                   android:layout_height="40dp"
+                   android:layout_width="match_parent">
+                   <TextView
+                       android:layout_marginStart="5dp"
+                       android:textColor="@color/black"
+                       android:textStyle="bold"
+                       android:height="30dp"
+                       android:gravity="center_vertical"
+                       android:layout_width="80dp"
+                       android:layout_height="wrap_content"
+                       android:text="电话号码"
+                       />
+                   <EditText
+                       android:id="@+id/phone"
+                       android:layout_weight="1"
+                       android:layout_marginRight="10dp"
+                       android:layout_width="0dp"
+                       android:layout_height="match_parent"
+                       android:background="@null"
+                       android:textSize="14sp"
+                       android:hint="输入电话号码"
+                       />
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_marginTop="1dp"
+                   android:background="@color/white"
+                   android:gravity="center_vertical"
+                   android:layout_height="40dp"
+                   android:layout_width="match_parent">
+                   <TextView
+                       android:layout_marginStart="5dp"
+                       android:textColor="@color/black"
+                       android:textStyle="bold"
+                       android:height="30dp"
+                       android:gravity="center_vertical"
+                       android:layout_width="80dp"
+                       android:layout_height="wrap_content"
+                       android:text="所在地区"
+                       />
+                   <EditText
+                       android:id="@+id/address_one"
+                       android:layout_weight="1"
+                       android:layout_marginRight="10dp"
+                       android:layout_width="0dp"
+                       android:layout_height="match_parent"
+                       android:background="@null"
+                       android:textSize="14sp"
+                       android:focusable="false"
+                       android:hint="省市区等"
+                       />
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_marginTop="1dp"
+                   android:background="@color/white"
+                   android:layout_gravity="top"
+                   android:gravity="top"
+                   android:layout_height="60dp"
+                   android:layout_width="match_parent">
+                   <TextView
+                       android:layout_marginStart="5dp"
+                       android:textColor="@color/black"
+                       android:textStyle="bold"
+                       android:height="30dp"
+                       android:layout_gravity="top"
+                       android:gravity="center_vertical"
+                       android:layout_width="80dp"
+                       android:layout_height="wrap_content"
+                       android:text="详细地址"
+                       />
+                   <EditText
+                       android:id="@+id/address_two"
+                       android:gravity="top"
+                       android:layout_weight="1"
+                       android:layout_marginRight="10dp"
+                       android:layout_width="0dp"
+                       android:layout_height="50dp"
+                       android:background="@null"
+                       android:textSize="14sp"
+                       android:hint="街道、门牌号"
+                       />
+
+               </LinearLayout>
+
+
+
+           </LinearLayout>
+       </androidx.cardview.widget.CardView>
+
+       <androidx.cardview.widget.CardView
+           android:layout_marginStart="8dp"
+           android:layout_marginEnd="8dp"
+           android:layout_marginTop="10dp"
+           app:cardBackgroundColor="@color/bck_color"
+           app:cardElevation="0dp"
+           app:cardMaxElevation="0dp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           app:cardCornerRadius="10dp">
+           <LinearLayout
+               android:gravity="center"
+               android:background="@color/white"
+               android:layout_height="50dp"
+               android:layout_width="match_parent"
+               android:orientation="horizontal"
+               >
+               <LinearLayout
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="match_parent"
+                   android:orientation="vertical"
+                   android:gravity="center_vertical">
+                   <TextView
+                       android:layout_marginStart="10dp"
+                       android:textColor="@color/black"
+                       android:gravity="center_vertical"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="设置默认地址"
+                       />
+                   <TextView
+                       android:textSize="12sp"
+                       android:layout_marginStart="10dp"
+                       android:textColor="@color/gray"
+                       android:gravity="center_vertical"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="提示：下单会优先使用改地址"
+                       />
+
+               </LinearLayout>
+              <Switch
+                  android:id="@+id/checkbox"
+                  android:checked="false"
+                  android:switchMinWidth="50dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+           </LinearLayout>
+       </androidx.cardview.widget.CardView>
+
+
+       <androidx.cardview.widget.CardView
+           android:id="@+id/submitBtn"
+           android:layout_marginTop="30dp"
+           android:layout_marginStart="40dp"
+           android:layout_marginEnd="40dp"
+           app:cardBackgroundColor="#F44336"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+           app:cardElevation="0dp"
+           app:cardMaxElevation="0dp"
+           app:cardCornerRadius="40dp"
+           android:layout_gravity="center"
+           >
+           <TextView
+               android:text="确定"
+               android:gravity="center"
+               android:textColor="@color/white"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"/>
+
+
+       </androidx.cardview.widget.CardView>
+
+
+
+
+
+   </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

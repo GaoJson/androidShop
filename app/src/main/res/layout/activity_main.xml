@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/main_frame"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+        </FrameLayout>
+
+        <View
+            android:background="#EAEAEA"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+        <LinearLayout
+            android:layout_marginBottom="0px"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            >
+            <LinearLayout
+                android:id="@+id/tabbar_item_home"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/tab1"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp">
+                </ImageView>
+                <TextView
+                    android:textColor="#333333"
+                    android:textSize="13sp"
+                    android:layout_gravity="center"
+                    android:text="首页"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/tabbar_item_category"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/tab1"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp">
+                </ImageView>
+                <TextView
+                    android:textColor="#333333"
+                    android:textSize="13sp"
+                    android:layout_gravity="center"
+                    android:text="首页"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/tabbar_item_shop_car"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/tab1"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp">
+
+                </ImageView>
+
+                <TextView
+                    android:textColor="#333333"
+                    android:textSize="13sp"
+                    android:layout_gravity="center"
+                    android:text="首页"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/tabbar_item_my"
+
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/tab1"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp">
+                </ImageView>
+                <TextView
+                    android:textColor="#333333"
+                    android:textSize="13sp"
+                    android:layout_gravity="center"
+                    android:text="首页"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <ImageView
+
+        android:id="@+id/shopCar"
+        android:visibility="gone"
+        android:src="@drawable/shopcar"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        />
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

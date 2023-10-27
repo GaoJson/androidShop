@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingStart="10dp"
+    android:paddingRight="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:src="@drawable/shopcar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
+
+    <TextView
+        android:textSize="12sp"
+        android:id="@+id/goodsName"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/image"
+        android:text=""
+        android:layout_width="0dp"
+        android:maxLines="2"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/goodsSpec"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/gray"
+        android:textSize="10sp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@id/goodsName"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/image"
+        android:text="规格：默认"
+        android:layout_width="0dp"
+        android:maxLines="2"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/goodsPrice"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/red"
+        android:textSize="13sp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toBottomOf="@id/goodsSpec"
+        app:layout_constraintLeft_toRightOf="@id/image"
+        android:text="¥110.3"
+        android:layout_width="0dp"
+        android:maxLines="2"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/goodsCount"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/gray"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toBottomOf="@id/goodsSpec"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="x3"
+        android:layout_width="0dp"
+        android:maxLines="2"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/item1"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/goodsPrice"
+        app:layout_constraintLeft_toRightOf="@id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardElevation="1dp"
+        app:cardCornerRadius="20dp"
+        app:strokeColor="@color/red"
+        app:strokeWidth="1dp"
+
+        >
+        <TextView
+
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:textColor="@color/red"
+            android:text="七天无理由退货"
+            android:textSize="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toBottomOf="@+id/goodsPrice"
+        app:layout_constraintLeft_toRightOf="@id/item1"
+        android:layout_marginStart="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardElevation="1dp"
+        app:cardCornerRadius="20dp"
+        app:strokeColor="@color/red"
+        app:strokeWidth="1dp"
+
+        >
+        <TextView
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:textColor="@color/red"
+            android:text="京东自营"
+            android:textSize="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <View
+        android:layout_marginTop="25dp"
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/lines"
+        app:layout_constraintTop_toBottomOf="@id/goodsPrice"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

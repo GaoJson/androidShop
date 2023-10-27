@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.my.OrderActivity">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           >
+           <com.example.myshop.baseview.NavigationBar
+               app:layout_constraintTop_toTopOf="parent"
+               app:title="我的订单"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+
+           <com.example.myshop.baseview.NavbarListView
+               android:id="@+id/navbarList"
+               android:layout_width="match_parent"
+               android:layout_height="30dp"/>
+
+           <com.scwang.smart.refresh.layout.SmartRefreshLayout
+               android:id="@+id/refreshLayout"
+               android:background="#ECECEC"
+               android:layout_width="match_parent"
+               android:layout_weight="1"
+               android:layout_height="0dp">
+               <com.scwang.smart.refresh.header.ClassicsHeader
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"/>
+
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+                   <androidx.recyclerview.widget.RecyclerView
+                       android:id="@+id/recycle"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent">
+                   </androidx.recyclerview.widget.RecyclerView>
+               </RelativeLayout>
+
+
+               <com.scwang.smart.refresh.footer.ClassicsFooter
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"/>
+           </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+       </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/noData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        >
+        <ImageView
+            android:src="@drawable/icon_data_empty"
+            android:layout_width="300dp"
+            android:adjustViewBounds="true"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="暂无数据"
+            />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

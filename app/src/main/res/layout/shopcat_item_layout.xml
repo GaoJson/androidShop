@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <CheckBox
+        android:id="@+id/selectStatus"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:checked="false"
+        android:layout_marginLeft="3dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp">
+    </CheckBox>
+
+    <ImageView
+        android:id="@+id/image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/selectStatus"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        />
+
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/good_name"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:text="自营式电商企业自营式电商企业自营式电商企业自营式电商企业"
+        app:layout_constraintLeft_toRightOf="@id/image"
+        app:layout_constraintTop_toTopOf="@+id/image"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="0dp"
+        android:maxLines="1"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/good_spec"
+        android:textSize="12sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:text="规格：十大大"
+        app:layout_constraintLeft_toRightOf="@id/image"
+        app:layout_constraintTop_toBottomOf="@+id/good_name"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="0dp"
+        android:maxLines="1"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/good_price"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:text="¥23.00"
+        android:textColor="#FB0707"
+        app:layout_constraintLeft_toRightOf="@id/image"
+        app:layout_constraintTop_toBottomOf="@+id/good_spec"
+        android:layout_width="wrap_content"
+        android:maxLines="1"
+        android:layout_height="wrap_content"/>
+
+
+    <LinearLayout
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp">
+        <TextView
+            android:id="@+id/reduceBtn"
+            android:background="@color/bck_color"
+            android:text="-"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_width="30dp"
+            android:layout_height="20dp"/>
+        <EditText
+            android:id="@+id/count"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:text="1"
+            android:inputType="number"
+            android:textSize="12sp"
+            android:background="@null"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/addBtn"
+            android:layout_gravity="center"
+            android:background="@color/bck_color"
+            android:text="+"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:layout_width="30dp"
+            android:layout_height="20dp"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/lines"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
