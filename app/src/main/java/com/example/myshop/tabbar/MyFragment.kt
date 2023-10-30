@@ -24,6 +24,7 @@ import com.example.myshop.databinding.FragmentCategoryBinding
 import com.example.myshop.databinding.FragmentHomeBinding
 import com.example.myshop.databinding.FragmentMyBinding
 import com.example.myshop.db.AppDatabaseManager
+import com.example.myshop.db.Order
 import com.example.myshop.db.User
 import com.example.myshop.http.model.HomeModel
 import com.example.myshop.userinfn.UserInfo
@@ -48,7 +49,7 @@ class MyFragment : Fragment() {
          launcherImg = registerForActivityResult( ActivityResultContracts.OpenDocument()){
              if (it != null) {
                  val  user = UserInfo.user
-                 user?.headIcon = it.toString()
+                 user.headIcon = it.toString()
                  if (user != null) {
                      UserInfo.saveUser(context!!,user)
                      UserInfo.updateUser()
@@ -81,14 +82,20 @@ class MyFragment : Fragment() {
         }
 
         bind.settingBtn.setOnClickListener{
+            val intent = Intent(activity,SettingActivity::class.java)
+            startActivity(intent)
+        }
+
+        bind.allOrderBtn.setOnClickListener{
             val intent = Intent(activity,OrderActivity::class.java)
             startActivity(intent)
         }
+
         val adapter = MySortAdapter()
         bind.sortViewpage.adapter = adapter
         var list = arrayListOf<HomeModel.TgoodsCategoryVo>()
-        var titleList = arrayOf("我的地址","我的收藏","我的团队","我的团队","我的团队","我的团队","我的团队","我的团队")
-        for (i in 0 until  8) {
+        var titleList = arrayOf("我的地址","我的收藏")
+        for (i in titleList.indices) {
             val name = "ic_my_service_${i+1}"
             val rId = resources.getIdentifier(name,"drawable",activity!!.packageName)
             list.add(HomeModel.TgoodsCategoryVo(cname = titleList[i],id = rId, sort = -1))
@@ -108,15 +115,15 @@ class MyFragment : Fragment() {
             orderList.add(shopCarQBadgeView)
             view.setOnClickListener { _ ->
                 val intent = Intent(activity,OrderActivity::class.java)
-                intent.putExtra("type",i+1)
+                var index = i+1
+                if (i == 4){
+                    index = 4
+                }
+                intent.putExtra("type",index)
                 startActivity(intent)
             }
 
         }
-
-
-
-
 
     }
 

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="8dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        />
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/good_name"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:text="自营式电商企业自营式电商企业自营式电商企业自营式电商企业"
+        app:layout_constraintLeft_toRightOf="@id/image"
+        app:layout_constraintTop_toTopOf="@+id/image"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="0dp"
+        android:maxLines="1"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/good_spec"
+        android:textSize="12sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:text="规格：十大大"
+        app:layout_constraintLeft_toRightOf="@id/image"
+        app:layout_constraintTop_toBottomOf="@+id/good_name"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="0dp"
+        android:maxLines="1"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/good_price"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:text="¥23.00"
+        android:textColor="#FB0707"
+        app:layout_constraintLeft_toRightOf="@id/image"
+        app:layout_constraintTop_toBottomOf="@+id/good_spec"
+        android:layout_width="wrap_content"
+        android:maxLines="1"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/deleteBtn"
+        android:layout_marginEnd="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardElevation="0dp"
+        app:cardMaxElevation="0dp"
+        app:cardCornerRadius="20dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/gray"
+        app:layout_constraintTop_toTopOf="@id/good_price"
+        app:layout_constraintRight_toLeftOf="@id/shopCar"
+        >
+        <TextView
+            android:textSize="12sp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:text="删除"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/shopCar"
+        android:layout_marginEnd="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardElevation="0dp"
+        app:cardMaxElevation="0dp"
+        app:cardCornerRadius="20dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/red"
+        app:layout_constraintTop_toTopOf="@id/good_price"
+        app:layout_constraintRight_toRightOf="parent"
+
+        >
+        <TextView
+            android:textColor="@color/red"
+            android:textSize="12sp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:text="加入购物车"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/lines"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

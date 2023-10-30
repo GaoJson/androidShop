@@ -21,6 +21,7 @@ import com.example.myshop.db.Address
 import com.example.myshop.db.AppDatabaseManager
 import com.example.myshop.db.ShopCar
 import com.example.myshop.db.User
+import com.example.myshop.tool.ToastTools
 import com.example.myshop.userinfn.UserInfo
 import com.google.gson.Gson
 import kotlinx.coroutines.GlobalScope
@@ -120,16 +121,19 @@ class ShopCatFragment : Fragment() {
         }
 
         binding.gotoPay.setOnClickListener {
-            val intent = Intent(activity,PreShopOrderActivity::class.java)
-
             val selectArray:ArrayList<ShopCar> = arrayListOf()
             adapter.dataList.forEach {
                 if (it.selectFlag == 1) {
                     selectArray.add(it)
                 }
             }
-            intent.putExtra("data",JSON.toJSONString(selectArray))
-            startAddressActivity.launch(intent)
+            if (selectArray.isNotEmpty()){
+                val intent = Intent(activity,PreShopOrderActivity::class.java)
+                intent.putExtra("data",JSON.toJSONString(selectArray))
+                startAddressActivity.launch(intent)
+            } else {
+                ToastTools.show(activity,"请选择商品")
+            }
         }
 
     }

@@ -18,6 +18,13 @@
         android:theme="@style/Theme.MyShop.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".activity.my.CollectActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".activity.my.OrderDetailActivity"
             android:exported="false">
             <meta-data

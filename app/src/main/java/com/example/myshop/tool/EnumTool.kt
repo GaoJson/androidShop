@@ -6,6 +6,7 @@ class EnumTool {
         fun orderStateName(state:Int):String {
             var value = ""
             when(state) {
+                0-> value = "已取消"
                 1-> value = "待支付"
                 2-> value = "未发货"
                 3-> value = "已发货"

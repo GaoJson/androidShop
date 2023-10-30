@@ -9,6 +9,7 @@ import android.text.InputType
 import android.view.View
 import android.view.ViewGroup.MarginLayoutParams
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.result.ActivityResultRegistry
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.marginLeft
@@ -73,7 +74,7 @@ class PreShopOrderActivity : BaseActivity() {
             if (it.resultCode == RESULT_OK) {
                val data = it.data?.getStringExtra("data")
                 addressModel = Gson().fromJson(data,Address::class.java)
-
+                binding.noAddress.visibility = View.VISIBLE
                 updateAddress()
             }
         }
@@ -171,7 +172,6 @@ class PreShopOrderActivity : BaseActivity() {
           order.id = data[0].toInt()
         }
 
-
         AlertDialog.Builder(this)
             .setTitle("支付订单")
             .setView(editText)
@@ -199,13 +199,13 @@ class PreShopOrderActivity : BaseActivity() {
                 AppDatabaseManager.db.shopCarDao.deleteModel(it.id)
             }
             runOnUiThread {
-                ToastTools.show(this@PreShopOrderActivity,"支付成功")
+                Toast.makeText(this@PreShopOrderActivity, "付款成功", Toast.LENGTH_SHORT).show()
                 Timer("delay").schedule(object :TimerTask(){
                     override fun run() {
                         setResult(RESULT_OK,intent)
                         finish()
                     }
-                },1000)
+                },1500)
 
             }
 

@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.example.myshop.R
 import com.example.myshop.activity.LoginActivity
 import com.example.myshop.activity.my.AddressActivity
+import com.example.myshop.activity.my.CollectActivity
 import com.example.myshop.http.model.HomeModel
 import com.example.myshop.tool.DisplayTool
 import kotlin.math.floor
@@ -128,9 +129,7 @@ class MySortAdapter: RecyclerView.Adapter<MySortAdapter.ViewPageHolder>() {
                     .into(holder.image)
             }
             holder.itemView.setOnClickListener{
-                val intent = Intent(it.context, AddressActivity::class.java)
-                it.context.startActivity(intent)
-
+                onclickItem(it,model)
             }
         }
 
@@ -142,6 +141,28 @@ class MySortAdapter: RecyclerView.Adapter<MySortAdapter.ViewPageHolder>() {
             val image: ImageView = itemView.findViewById(R.id.image)
             val title: TextView = itemView.findViewById(R.id.titles)
         }
+
+        fun onclickItem(it:View,model:HomeModel.TgoodsCategoryVo){
+            when (model.cname) {
+                "我的地址"->{
+                    val intent = Intent(it.context, AddressActivity::class.java)
+                    it.context.startActivity(intent)
+                }
+                "我的收藏"->{
+                    val intent = Intent(it.context, CollectActivity::class.java)
+                    it.context.startActivity(intent)
+                }
+
+
+
+            }
+
+
+
+        }
+
+
+
     }
 
 }

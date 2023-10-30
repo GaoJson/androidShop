@@ -158,7 +158,9 @@ class OrderDetailActivity : BaseActivity() {
              menuItem2.setOnClickListener {
                 GlobalScope.launch {
                     AppDatabaseManager.db.orderDao.deleteModel(model)
-
+                    runOnUiThread {
+                        finish()
+                    }
                 }
             }
         } else if(model.state == 5) {
@@ -167,7 +169,9 @@ class OrderDetailActivity : BaseActivity() {
              menuItem1.setOnClickListener {
                 GlobalScope.launch {
                     AppDatabaseManager.db.orderDao.deleteModel(model)
-
+                    runOnUiThread {
+                        finish()
+                    }
                 }
             }
         }

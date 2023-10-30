@@ -185,8 +185,6 @@ class MainActivity : AppCompatActivity() {
 
     fun updateShopCar(data:IntArray){
 
-
-
         val x = data[0]+DisplayTool.dpToPx(this,8.0)
         val y = data[1]-DisplayTool.dpToPx(this,22.0)
         var animatorX =  ObjectAnimator.ofFloat(binding.shopCar, "translationX", x.toFloat())

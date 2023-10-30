@@ -1,6 +1,7 @@
 package com.example.myshop.adapter
 
 import android.animation.ObjectAnimator
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,12 +43,8 @@ class CategoryRightViewAdapter:RecyclerView.Adapter<CategoryRightViewAdapter.Cat
             (holder.itemView.context as MainActivity).updateShopCar(locationWindow)
 
             val shopCar = ShopCar(dataList[position])
-            shopCar.userId = UserInfo.user!!.id
-           GlobalScope.launch {
-               val data = AppDatabaseManager.db.shopCarDao.save(shopCar)
-               ShopCarCountReceiver.updateShopCar(holder.itemView.context)
-           }
-
+            shopCar.userId = UserInfo.user.id
+            ShopCar.saveModel(shopCar,holder.itemView.context)
         }
     }
 

@@ -6,6 +6,11 @@ import android.widget.Toast
 
 
 object ToastTools {
+    fun showMsg(context: Context?, text: String?){
+        Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
+    }
+
+
     var toast: Toast? = null
     fun show(context: Context?, text: String?) {
         try {

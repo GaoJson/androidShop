@@ -25,6 +25,7 @@ interface ShopCarDao {
     @Query("delete from ShopCar where id=:id")
     fun  deleteModel(id:Int):Int
 
-
+    @Query("select * from ShopCar where good_id=:shopId and userId=:userId")
+    fun  select(shopId:Int,userId:Int):ShopCar
 
 }

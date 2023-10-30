@@ -29,10 +29,12 @@ class OrderActivity : BaseActivity() {
         binding = ActivityOrderBinding.inflate(layoutInflater)
         setContentView(binding.root)
         DisplayTool.transparentStatusBar(window)
-
         orderState = intent.getIntExtra("type",0)
-
         setUI()
+    }
+
+    override fun onResume() {
+        super.onResume()
         loadData()
     }
 

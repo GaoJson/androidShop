@@ -1,8 +1,10 @@
 package com.example.myshop.db
 
+import android.content.Context
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import com.example.myshop.broadcast.ShopCarCountReceiver
 import com.example.myshop.http.model.GoodModel
 import com.example.myshop.userinfn.UserInfo
 import kotlinx.coroutines.GlobalScope
@@ -41,10 +43,22 @@ data class ShopCar(
         }
         fun updateShopCarCount(status:Int){
             GlobalScope.launch {
-                AppDatabaseManager.db.shopCarDao.updateAllSelect(status, UserInfo.user?.id ?: 0)
+                AppDatabaseManager.db.shopCarDao.updateAllSelect(status, UserInfo.user.id ?: 0)
             }
-
         }
 
+        fun saveModel(model:ShopCar,context: Context){
+            GlobalScope.launch {
+              val data =  AppDatabaseManager.db.shopCarDao.select(model.good_id,UserInfo.user.id)
+                if (data != null) {
+                    data.count += 1
+                    updateShopCar(data)
+                } else {
+                    model.count = 1
+                    AppDatabaseManager.db.shopCarDao.save(model)
+                }
+                ShopCarCountReceiver.updateShopCar(context)
+            }
+        }
     }
 }

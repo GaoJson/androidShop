@@ -51,12 +51,8 @@ class HomeAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             it.getLocationOnScreen(locationWindow)
             (holder.itemView.context as MainActivity).updateShopCar(locationWindow)
             val shopCar = ShopCar(list[position])
-            shopCar.userId = UserInfo.user!!.id
-            GlobalScope.launch {
-                val data = AppDatabaseManager.db.shopCarDao.save(shopCar)
-                ShopCarCountReceiver.updateShopCar(holder.itemView.context)
-            }
-
+            shopCar.userId = UserInfo.user.id
+            ShopCar.saveModel(shopCar,holder.itemView.context)
         }
 
     }

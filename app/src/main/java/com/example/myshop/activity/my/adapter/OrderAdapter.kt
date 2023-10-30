@@ -85,7 +85,19 @@ class OrderAdapter:RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
         (holder.menuItem2.parent as View).visibility = View.GONE
         (holder.menuItem3.parent as View).visibility = View.GONE
         (holder.menuItem4.parent as View).visibility = View.GONE
-        if (model.state == 1){
+
+        if (model.state == 0){
+            (holder.menuItem1.parent as View).visibility = View.VISIBLE
+            holder.menuItem1.text = "删除订单"
+            holder.menuItem1.setOnClickListener {
+                GlobalScope.launch {
+                    AppDatabaseManager.db.orderDao.deleteModel(model)
+                    if (refresher != null) {
+                        refresher!!.invoke(1)
+                    }
+                }
+            }
+        } else  if (model.state == 1){
             (holder.menuItem1.parent as View).visibility = View.VISIBLE
             (holder.menuItem2.parent as View).visibility = View.VISIBLE
             holder.menuItem1.text = "去支付"
@@ -93,6 +105,15 @@ class OrderAdapter:RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
 
             holder.menuItem1.setOnClickListener {
                 gotoPay(model,holder.itemView.context)
+            }
+            holder.menuItem2.setOnClickListener {
+                GlobalScope.launch {
+                    model.state = 0
+                    AppDatabaseManager.db.orderDao.updateModel(model)
+                    if (refresher != null) {
+                        refresher!!.invoke(1)
+                    }
+                }
             }
 
         } else if (model.state == 2) {
