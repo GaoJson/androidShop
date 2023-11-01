@@ -55,15 +55,9 @@ class PreShopOrderActivity : BaseActivity() {
         setContentView(binding.root)
         DisplayTool.transparentStatusBar(window)
         setUI()
-
-
-
     }
 
-
-
     fun setUI() {
-
         binding.goodsList.layoutManager = object :LinearLayoutManager(this){
             override fun canScrollVertically(): Boolean {
                 return false
@@ -72,10 +66,12 @@ class PreShopOrderActivity : BaseActivity() {
         binding.goodsList.adapter = goodsAdapter
         val startAddressActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == RESULT_OK) {
-               val data = it.data?.getStringExtra("data")
-                addressModel = Gson().fromJson(data,Address::class.java)
-                binding.noAddress.visibility = View.VISIBLE
-                updateAddress()
+                runOnUiThread {
+                    val data = it.data?.getStringExtra("data")
+                    addressModel = Gson().fromJson(data,Address::class.java)
+                    binding.noAddress.visibility = View.GONE
+                    updateAddress()
+                }
             }
         }
         binding.addressView.setOnClickListener {

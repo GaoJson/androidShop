@@ -27,6 +27,7 @@ import com.example.myshop.db.AppDatabaseManager
 import com.example.myshop.db.Order
 import com.example.myshop.db.User
 import com.example.myshop.http.model.HomeModel
+import com.example.myshop.tool.JudgeLogin
 import com.example.myshop.userinfn.UserInfo
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -87,8 +88,10 @@ class MyFragment : Fragment() {
         }
 
         bind.allOrderBtn.setOnClickListener{
-            val intent = Intent(activity,OrderActivity::class.java)
-            startActivity(intent)
+            JudgeLogin.judge(activity!!){
+                val intent = Intent(activity,OrderActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         val adapter = MySortAdapter()
@@ -114,13 +117,15 @@ class MyFragment : Fragment() {
             shopCarQBadgeView.visibility = View.GONE
             orderList.add(shopCarQBadgeView)
             view.setOnClickListener { _ ->
-                val intent = Intent(activity,OrderActivity::class.java)
-                var index = i+1
-                if (i == 4){
-                    index = 4
-                }
-                intent.putExtra("type",index)
-                startActivity(intent)
+               JudgeLogin.judge(activity!!){
+                   val intent = Intent(activity,OrderActivity::class.java)
+                   var index = i+1
+                   if (i == 4){
+                       index = 4
+                   }
+                   intent.putExtra("type",index)
+                   startActivity(intent)
+               }
             }
 
         }

@@ -1,12 +1,16 @@
 package com.example.myshop.activity
 
+import android.content.Intent
 import android.graphics.Paint
 import android.os.Bundle
 import android.os.Handler
 import android.webkit.WebChromeClient
 import android.webkit.WebView
+import com.alibaba.fastjson.JSON
 import com.bumptech.glide.Glide
+import com.example.myshop.MainActivity
 import com.example.myshop.R
+import com.example.myshop.activity.order.PreShopOrderActivity
 import com.example.myshop.baseview.BaseActivity
 import com.example.myshop.broadcast.ShopCarCountReceiver
 import com.example.myshop.databinding.ActivityGoodDetailBinding
@@ -18,6 +22,7 @@ import com.example.myshop.http.HttpCallback
 import com.example.myshop.http.HttpUtil
 import com.example.myshop.http.NWApi
 import com.example.myshop.http.model.GoodModel
+import com.example.myshop.tool.JudgeLogin
 import com.example.myshop.tool.ToastTools
 import com.example.myshop.userinfn.UserInfo
 import com.google.gson.Gson
@@ -108,22 +113,37 @@ class GoodDetailActivity : BaseActivity() {
         }
 
         binding.shopCarBtn.setOnClickListener{
-            val model = ShopCar(goodModel)
-            model.userId = UserInfo.user.id
-            ShopCar.saveModel(model,this@GoodDetailActivity)
-            ToastTools.showMsg(this,"加入购物车成功")
-        }
-        binding.likeBtn.setOnClickListener{
-            if (likeFlag) {
-                Collect.deleteModel(goodModel.id)
-                ToastTools.showMsg(this,"取消收藏成功")
-                binding.likeBtn.setImageResource(R.drawable.icon_goods_not_like)
-            } else {
-                Collect.saveModel(goodModel)
-                ToastTools.showMsg(this,"收藏成功")
-                binding.likeBtn.setImageResource(R.drawable.icon_goods_like)
+            JudgeLogin.judge(this){ _ ->
+                val model = ShopCar(goodModel)
+                model.userId = UserInfo.user.id
+                ShopCar.saveModel(model,this@GoodDetailActivity)
+                ToastTools.showMsg(this,"加入购物车成功")
             }
         }
+        binding.likeBtn.setOnClickListener{
+            JudgeLogin.judge(this){ _ ->
+                if (likeFlag) {
+                    Collect.deleteModel(goodModel.id)
+                    ToastTools.showMsg(this,"取消收藏成功")
+                    binding.likeBtn.setImageResource(R.drawable.icon_goods_not_like)
+                } else {
+                    Collect.saveModel(goodModel)
+                    ToastTools.showMsg(this,"收藏成功")
+                    binding.likeBtn.setImageResource(R.drawable.icon_goods_like)
+                }
+            }
+        }
+
+        binding.buyBtn.setOnClickListener{
+            JudgeLogin.judge(this){ _ ->
+                val shopCar = ShopCar(goodModel)
+                val array = arrayListOf(shopCar)
+                val intent = Intent(this, PreShopOrderActivity::class.java)
+                intent.putExtra("data", JSON.toJSONString(array))
+                startActivity(intent)
+            }
+        }
+
 
         val id = intent.getIntExtra("goodId",0)
         GlobalScope.launch {

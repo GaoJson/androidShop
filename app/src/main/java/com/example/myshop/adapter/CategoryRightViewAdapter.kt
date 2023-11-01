@@ -2,6 +2,7 @@ package com.example.myshop.adapter
 
 import android.animation.ObjectAnimator
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,12 +14,14 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.myshop.MainActivity
 import com.example.myshop.R
+import com.example.myshop.activity.GoodDetailActivity
 import com.example.myshop.broadcast.ShopCarCountReceiver
 import com.example.myshop.db.AppDataBase
 import com.example.myshop.db.AppDatabaseManager
 import com.example.myshop.db.ShopCar
 import com.example.myshop.db.ShopCarDao
 import com.example.myshop.http.model.GoodModel
+import com.example.myshop.tool.JudgeLogin
 import com.example.myshop.userinfn.UserInfo
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -38,13 +41,19 @@ class CategoryRightViewAdapter:RecyclerView.Adapter<CategoryRightViewAdapter.Cat
     override fun onBindViewHolder(holder: CategoryRightViewHolder, position: Int) {
         holder.updateUI(dataList[position])
         holder.shopCar.setOnClickListener {
-            var locationWindow = IntArray(2)
-            it.getLocationOnScreen(locationWindow)
-            (holder.itemView.context as MainActivity).updateShopCar(locationWindow)
-
-            val shopCar = ShopCar(dataList[position])
-            shopCar.userId = UserInfo.user.id
-            ShopCar.saveModel(shopCar,holder.itemView.context)
+            JudgeLogin.judge(holder.itemView.context){_->
+                var locationWindow = IntArray(2)
+                it.getLocationOnScreen(locationWindow)
+                (holder.itemView.context as MainActivity).updateShopCar(locationWindow)
+                val shopCar = ShopCar(dataList[position])
+                shopCar.userId = UserInfo.user.id
+                ShopCar.saveModel(shopCar,holder.itemView.context)
+            }
+        }
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context,GoodDetailActivity::class.java)
+            intent.putExtra("goodId",dataList[position].id)
+            holder.itemView.context.startActivity(intent)
         }
     }
 

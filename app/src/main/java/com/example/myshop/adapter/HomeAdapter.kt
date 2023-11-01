@@ -16,6 +16,7 @@ import com.example.myshop.db.AppDatabaseManager
 import com.example.myshop.db.ShopCar
 import com.example.myshop.http.model.GoodModel
 import com.example.myshop.interfaces.ListCallback
+import com.example.myshop.tool.JudgeLogin
 import com.example.myshop.userinfn.UserInfo
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -47,12 +48,14 @@ class HomeAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             listener.invoke(list[position])
         }
         view.shopCar.setOnClickListener {
-            var locationWindow = IntArray(2)
-            it.getLocationOnScreen(locationWindow)
-            (holder.itemView.context as MainActivity).updateShopCar(locationWindow)
-            val shopCar = ShopCar(list[position])
-            shopCar.userId = UserInfo.user.id
-            ShopCar.saveModel(shopCar,holder.itemView.context)
+           JudgeLogin.judge(holder.itemView.context){_ ->
+               var locationWindow = IntArray(2)
+               it.getLocationOnScreen(locationWindow)
+               (holder.itemView.context as MainActivity).updateShopCar(locationWindow)
+               val shopCar = ShopCar(list[position])
+               shopCar.userId = UserInfo.user.id
+               ShopCar.saveModel(shopCar,holder.itemView.context)
+           }
         }
 
     }

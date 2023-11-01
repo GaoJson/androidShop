@@ -92,7 +92,6 @@ class CategoryFragment : Fragment() {
                 override fun success(data: String?) {
                   val info:JSONObject = JSON.parseObject(data)
                     val total = "${info["total"]}".toInt()
-                    println(total)
                     val array = info["rows"] as JSONArray
                     if (page == 1){
                         rightViewAdapter.dataList.clear()
@@ -107,6 +106,11 @@ class CategoryFragment : Fragment() {
                         callback(false)
                     }
                     rightViewAdapter.notifyDataSetChanged()
+                    if (rightViewAdapter.dataList.size > 0){
+                        binding.noData.visibility = View.GONE
+                    } else {
+                        binding.noData.visibility = View.VISIBLE
+                    }
                 }
 
                 override fun fail(error: String?) {

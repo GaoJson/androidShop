@@ -16,6 +16,7 @@ import com.example.myshop.activity.my.AddressActivity
 import com.example.myshop.activity.my.CollectActivity
 import com.example.myshop.http.model.HomeModel
 import com.example.myshop.tool.DisplayTool
+import com.example.myshop.tool.JudgeLogin
 import kotlin.math.floor
 
 class MySortAdapter: RecyclerView.Adapter<MySortAdapter.ViewPageHolder>() {
@@ -143,22 +144,19 @@ class MySortAdapter: RecyclerView.Adapter<MySortAdapter.ViewPageHolder>() {
         }
 
         fun onclickItem(it:View,model:HomeModel.TgoodsCategoryVo){
-            when (model.cname) {
-                "我的地址"->{
-                    val intent = Intent(it.context, AddressActivity::class.java)
-                    it.context.startActivity(intent)
+            JudgeLogin.judge(it.context) { _ ->
+                when (model.cname) {
+                    "我的地址"->{
+                        val intent = Intent(it.context, AddressActivity::class.java)
+                        it.context.startActivity(intent)
+                    }
+                    "我的收藏"->{
+                        val intent = Intent(it.context, CollectActivity::class.java)
+                        it.context.startActivity(intent)
+                    }
                 }
-                "我的收藏"->{
-                    val intent = Intent(it.context, CollectActivity::class.java)
-                    it.context.startActivity(intent)
-                }
-
-
 
             }
-
-
-
         }
 
 

@@ -2,6 +2,7 @@ package com.example.myshop.activity.my
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myshop.activity.my.adapter.CollectAdapter
 import com.example.myshop.baseview.BaseActivity
@@ -33,6 +34,11 @@ class CollectActivity : BaseActivity() {
             runOnUiThread {
                 adapter.dataList.addAll(data)
                 adapter.notifyDataSetChanged()
+                if (data.isEmpty()) {
+                    binding.noData.visibility = View.VISIBLE
+                } else {
+                    binding.noData.visibility = View.GONE
+                }
             }
         }
     }
